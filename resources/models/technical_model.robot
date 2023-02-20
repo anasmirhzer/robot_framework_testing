@@ -32,7 +32,6 @@ Check Json Response
 
 Create project and Get id
     ${response}    manage_project.create_project
-    Log    ${response.json()["id"]}
     Set Suite Variable    ${project_id}    ${response.json()["id"]}
 
 Create Tasks and Get ids
@@ -43,4 +42,4 @@ Create Tasks and Get ids
 Check List Length
     [Arguments]    ${list}    ${expected_length}
     ${length}    Get Length    ${list}
-    Should Be Equal As Integers    ${length}    2
+    Should Be Equal As Integers    ${length}    ${expected_length}
